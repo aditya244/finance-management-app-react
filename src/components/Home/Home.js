@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+// import { Pie } from 'react-chart.js';
 
 class Home extends Component {
     render() {
@@ -9,11 +10,10 @@ class Home extends Component {
                 <div className="div-box">
                     <h3>Budget Overview</h3>
                     <hr width="100%"/>
-                    {this.props.totalBudget}
-                    <p> Graph Here </p>
+                    <p> Total BUdget : {this.props.totalBudget} </p>
                 </div>
                 <div className="div-box">
-                    <h3>Budget Overview</h3>
+                    <h3>Category Wise Split</h3>
                     <hr width="100%"/>
                     <p> Graph Here </p>
                 </div>
