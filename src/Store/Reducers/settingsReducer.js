@@ -1,9 +1,13 @@
 import * as actionTypes from '../Actions';
+import modalForm from '../../components/Redux-Form/Redux-Form'
 
 const initialState = {
     category_name: '',
     categories: [],
-    totalBudget: ''
+    totalBudget: '',
+    showFormModal: false,
+    formDataArr: [],
+    formData: {},
 }
 
 const reducer = (state = initialState, action) => {
@@ -21,6 +25,16 @@ const reducer = (state = initialState, action) => {
             return {...state, totalBudget: action.value}
         case actionTypes.UPDATE_TOTAL_BUDGET : 
             return {...state, totalBudget: parseInt(state.totalBudget)}
+        case actionTypes.SHOW_FORM_MODAL : 
+            return {...state, showFormModal: true}
+        case actionTypes.HIDE_FORM_MODAL : 
+            return {...state, showFormModal: false}
+        case actionTypes.GET_FORM_DATA : 
+            console.log(action.payload, 'PAYLOAD')
+            return {...state, formData: Object.assign({}, action.payload)}
+        case actionTypes.ADD_FORM_DATA_TO_ARRAY : 
+            console.log(state.formData);
+            return {...state, formDaraArr: state.formDataArr.push(action.payload)}
         default :
             return state;
     }

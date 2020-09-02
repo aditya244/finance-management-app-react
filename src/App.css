@@ -9,6 +9,7 @@ a:link {
 .navbar {
   margin: 10px;
   float: left;
+  height: 100vh;
 }
 
 .li-item {
@@ -44,4 +45,44 @@ a:link {
   float: left;
   margin-right: 40px;
   padding: 15px;
+}
+
+.ui-button {
+  height: 60px;
+  width: 150px;
+  float: left;
+  margin-top: 20px;
+  padding-top: 25px;
+  text-align: center;
+  border: solid 1px black;
+}
+
+.add-expense-modal {
+  height: 500px;
+  width: 500px;
+  background-color: cornsilk;
+  border: solid 1px burlywood;
+  /* clear: right; */
+  /* display: block; */
+}
+
+.expense-div {
+  width: 500px;
+  height: auto;
+  border: solid 1px black;
+  float: left;
+  margin-right: 40px;
+  padding: 15px;
+  clear: both;
+  margin-left: inherit;
+}
+
+.single-expense-details {
+  height: 40px;
+  width: 65%;
+  margin: auto;
+  text-align: center;
+  border: solid 1px black;
+  padding: 7px;
+  margin-top:7px;
 }

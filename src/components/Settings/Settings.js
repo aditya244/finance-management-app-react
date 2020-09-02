@@ -39,8 +39,8 @@ class Settings extends Component {
 
 const mapStateToProps = state => {
     return {
-        inputValue: state.category_name,
-        categoriesArr: state.categories
+        inputValue: state.settings.category_name,
+        categoriesArr: state.settings.categories
     }
 }
 
