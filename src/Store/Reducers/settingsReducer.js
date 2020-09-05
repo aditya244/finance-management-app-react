@@ -8,6 +8,8 @@ const initialState = {
     showFormModal: false,
     formDataArr: [],
     formData: {},
+    totalExpenses: 0,
+    showExpensesDiv: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -35,6 +37,18 @@ const reducer = (state = initialState, action) => {
         case actionTypes.ADD_FORM_DATA_TO_ARRAY : 
             console.log(state.formData);
             return {...state, formDaraArr: state.formDataArr.push(action.payload)}
+        case actionTypes.GET_TOTAL_EXPENSES : 
+            let amountArr = []
+            state.formDataArr.map((el) => {
+                amountArr.push(parseInt(el.amount))
+            })
+            const arrReducer = (acc, item) => {
+                return acc + item
+            }
+            let totalExp = amountArr.reduce(arrReducer, 0)
+            return {...state, totalExpenses:totalExp }
+        case actionTypes.SHOW_EXPENSES_DIV : 
+            return {...state, showExpensesDiv: true}
         default :
             return state;
     }

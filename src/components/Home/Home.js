@@ -8,30 +8,31 @@ import moment from 'moment';
 class Home extends Component {
     render() {
         const expenses = this.props.formDataArr.map(el => {
-            console.log(el.dob, 'DOB')
             return <p className="single-expense-details" key={Math.random()}> 
                 Amount: {el.amount} 
                 Item Name: {el.itemName} 
                 Date of Purchase: {moment(el.dob).format('DD/MM/YYYY')}</p>
         })
         return (
-            <div className="">
+            <div className="container-div">
                 <h3>Home</h3>
                 <div className="div-box">
                     <h3>Budget Overview</h3>
                     <hr width="100%"/>
                     <p> Total Budget : {this.props.totalBudget} </p>
+                    <p> Total Expenses : {this.props.totalExpenses} </p>
                 </div>
                 <div className="div-box">
                     <h3>Category Wise Split</h3>
                     <hr width="100%"/>
                     <p> Graph Here </p>
                 </div>
-                <div className="ui-button" onClick={this.props.showFormModalHandler}>
+                <div className="add-expense-button" onClick={this.props.showFormModalHandler}>
                     Add Expenses
                 </div>
+                {this.props.showExpensesDiv === true ? 
+                <div className="expense-div">{expenses}</div> : null }
                 <Modal show={this.props.showFormModal}/>
-                <div className="expense-div">{expenses}</div>
             </div>
         );
     }
@@ -41,7 +42,9 @@ const mapStateToProps = state => {
     return {
         totalBudget: state.settings.totalBudget,
         showFormModal: state.settings.showFormModal,
-        formDataArr: state.settings.formDataArr
+        formDataArr: state.settings.formDataArr,
+        totalExpenses: state.settings.totalExpenses,
+        showExpensesDiv: state.settings.showExpensesDiv
     }
 }
 

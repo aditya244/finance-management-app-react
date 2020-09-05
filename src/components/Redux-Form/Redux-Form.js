@@ -21,33 +21,33 @@ let ModalForm = props => {
     const {handleSubmit, categories} = props 
     console.log(props, 'FORM PROPS')
     return <form onSubmit={handleSubmit}>
-        <div>
+        <div className="form-element">
             <label> Categories </label>
-            <Field name="categories" component="select">
+            <Field name="categories" component="select" className="modalForm-field">
                 <option/>
                 {categories.map(el => {
                         return <option value={el} key={Math.random()}>{el}</option>
                     })}
             </Field>
         </div>
-        <div>
+        <div className="form-element">
             <label htmlFor="itemName">Item Name</label>
-            <Field name="itemName" component="input" type="text"/>
+            <Field name="itemName" component="input" type="text" className="modalForm-field"/>
         </div>
-        <div>
+        <div className="form-element">
             <label htmlFor="amount" component="input" type="text"> Amount </label>
-            <Field name="amount" component="input" type="text"/>
+            <Field name="amount" component="input" type="text" className="modalForm-field"/>
         </div>
 
-        <div>
-        <label>DOB</label>
+        <div className="form-element">
+        <label>Date of Purchase</label> <br></br>
         <Field
           name="dob"
           showTime={false}
           component={renderDateTimePicker}
         />
-      </div>
-        <button type="submit">Submit</button>
+      </div >
+        <button type="submit" className="submit-btn">Submit</button>
     </form>
 }
 

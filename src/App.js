@@ -14,13 +14,13 @@ class App extends Component {
         </div>
         <div className="navbar">
           <ul type="none">
-            <li className="li-item"><Link to="/home"> Home </Link></li>
+            <li className="li-item"><Link to="/"> Home </Link></li>
             <li className="li-item"><Link to="/settings"> Settings </Link></li>
             <li className="li-item"><Link to="/profile"> Profile </Link></li>
           </ul>
         </div>
         <Switch>
-          <Route path="/home" component={Home} exact/>
+          <Route path="/" component={Home} exact/>
           <Route path="/settings" component={Settings} exact/>
           <Route path="/profile" component={Profile} exact/>
         </Switch>
