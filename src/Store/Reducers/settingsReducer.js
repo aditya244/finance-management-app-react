@@ -1,5 +1,5 @@
+import { act } from 'react-dom/test-utils';
 import * as actionTypes from '../Actions';
-import modalForm from '../../components/Redux-Form/Redux-Form'
 
 const initialState = {
     category_name: '',
@@ -9,7 +9,9 @@ const initialState = {
     formDataArr: [],
     formData: {},
     totalExpenses: 0,
-    showExpensesDiv: false
+    showExpensesDiv: false,
+    isLoggedIn: false,
+    userData: {}
 }
 
 const reducer = (state = initialState, action) => {
@@ -49,6 +51,10 @@ const reducer = (state = initialState, action) => {
             return {...state, totalExpenses:totalExp }
         case actionTypes.SHOW_EXPENSES_DIV : 
             return {...state, showExpensesDiv: true}
+        case actionTypes.USER_LOGGED_IN : 
+            return {...state, isLoggedIn: true, userData: Object.assign({}, action.payload)}
+        case actionTypes.USER_LOGGED_IN : 
+            return {...state, isLoggedIn: false}
         default :
             return state;
     }

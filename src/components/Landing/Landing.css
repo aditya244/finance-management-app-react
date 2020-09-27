@@ -1,0 +1,9 @@
+.div-container{
+    height: 700px;
+    width: 700px;
+    position: fixed;
+    background-color: #235789;
+    color: #fff;
+    margin: 0px;
+    z-index: 100;
+}

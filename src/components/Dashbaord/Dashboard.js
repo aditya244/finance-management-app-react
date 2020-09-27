@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import Modal from '../Modal/Modal';
 import * as actionTypes from '../../Store/Actions';
 import moment from 'moment';
+import Landing from '../Landing/Landing';
 // import { Pie } from 'react-chart.js';
 
-class Home extends Component {
+class Dashbaord extends Component {
     render() {
         const expenses = this.props.formDataArr.map(el => {
             return <p className="single-expense-details" key={Math.random()}> 
@@ -56,4 +57,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Dashbaord);
